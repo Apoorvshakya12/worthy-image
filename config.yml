@@ -1,0 +1,13 @@
+# Configuration for image processing script
+
+threshold_value: 150  # Threshold for creating a binary image
+min_contour_area: 10000  # Minimum contour area to consider
+kernel_size: [3, 3]  # Kernel size for morphological operations
+ref_dimension_cm: 10.08  # Reference dimension for pixels to metric conversion (in cm)
+min_contour_dimension: 200  # Minimum contour dimension for further processing
+ls_threshold: 140  # Threshold for size decision (object size > 140mm)
+crop_box: [640, 50, 3950, 3350]  # Coordinates for cropping the image
+split_ratio: 0.35  # Ratio to split the cropped image into two regions
+decision_threshold: 146  # Threshold to make a decision based on object size
+timezone: "Asia/Kolkata"  # Timezone for timestamp
+#filename: "Filename"  # Default filename for output

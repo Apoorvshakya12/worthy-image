@@ -1,0 +1,50 @@
+image_processing:
+  extract_rgb_values:
+    threshold: 150
+    min_area: 10000
+    kernel_size: [3, 3]
+    pixels_per_metric_reference: 10.08  # Reference dimension for metric conversion
+  whiteness_analysis:
+    crop_coordinates:
+      x1: 640
+      y1: 50
+      x2: 3950
+      y2: 3350
+    split_ratio: 0.35
+  ls_size_threshold:
+    value: 140
+  contour_processing:
+    min_contour_area: 200
+    dimensions:
+      max_threshold: 146  # Threshold for decision
+  decision_criteria:
+    decision_yes_threshold: 146
+    decision_no_threshold: 140
+  rgb_values_extraction:
+    regions:
+      - strip
+      - bowl
+  logging:
+    timezone: 'Asia/Kolkata'
+    timestamp_format: "%Y-%m-%d %H:%M:%S"
+    filename: 'image.jpg'
+
+# Image file and byte extraction:
+image_processing_byte_conversion:
+  conversion_method: "frombuffer"
+  decoding_method: "cv.imdecode"
+  image_format: "jpg"
+
+# Output structure:
+output:
+  keys:
+    - filename
+    - timestamp
+    - ls
+    - strip_r
+    - strip_g
+    - strip_b
+    - bowl_r
+    - bowl_g
+    - bowl_b
+    - Decision
